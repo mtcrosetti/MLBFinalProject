@@ -27,20 +27,28 @@ class Item(object):
 
 @app.route('/')
 def test():
-    result = engine.execute("SELECT Name, Team, Position, Age, DEF, ISO, BB, K, SB, BABIP, Prediction FROM predictiondata WHERE Name == 'Willians Astudillo'").first()
+    result = engine.execute("SELECT Name, Level, Team, Position, Age, DEF, ISO, BB, K, SB, BABIP, Prediction FROM predictiondata WHERE Name == 'Willians Astudillo'").first()
     print("Result:", result.Name)
-    return render_template("index.html", Name=result.Name, Team=result.Team, Position=result.Position, Predicted=result.Prediction, Age=result.Age, Def=result.DEF, Iso=result.ISO, BB=result.BB, Strikeout=result.K, SB=result.SB, Babip=result.BABIP )
+    return render_template("index.html", Name=result.Name, Team=result.Team, Level=result.Level, Position=result.Position, Predicted=result.Prediction, Age=result.Age, Def=result.DEF, Iso=result.ISO, BB=result.BB, Strikeout=result.K, SB=result.SB, Babip=result.BABIP )
 
 @app.route('/results', methods=['POST', 'GET'])
 def results():
     if request.method == 'POST':
         resulted = request.form
         firstName = resulted['name']
-        query = "SELECT Name, Team, Position, Age, DEF, ISO, BB, K, SB, BABIP, Prediction FROM predictiondata WHERE Name == '{}'".format(firstName)
+        query = "SELECT Name, Level, Team, Position, Age, DEF, ISO, BB, K, SB, BABIP, Prediction FROM predictiondata WHERE Name == '{}'".format(firstName)
         result = engine.execute(query).first()
-        return render_template("index.html", Name=result.Name, Team=result.Team, Position=result.Position, Predicted=result.Prediction, Age=result.Age, Def=result.DEF, Iso=result.ISO, BB=result.BB, Strikeout=result.K, SB=result.SB, Babip=result.BABIP )
+        return render_template("index.html", Name=result.Name, Team=result.Team, Level=result.Level, Position=result.Position, Predicted=result.Prediction, Age=result.Age, Def=result.DEF, Iso=result.ISO, BB=result.BB, Strikeout=result.K, SB=result.SB, Babip=result.BABIP )
 
+@app.route('/about')
+def about():
+    """RENDER ABOUT"""
+    return render_template("about.html")
 
+@app.route('/sources')
+def sources():
+    """"RENDER ABOUT"""
+    return render_template('sources.html')
 
 
 if __name__ == '__main__':
