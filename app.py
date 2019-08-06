@@ -3,8 +3,8 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy import create_engine, MetaData, Table
 from flask import Flask, request, redirect, render_template
-
-app = Flask(__name__, template_folder="./static/templates")
+# template_folder="./static/templates"
+app = Flask(__name__)
 engine = create_engine("sqlite:///Models/2019.sqlite")
 Base = automap_base()
 Base.prepare(engine, reflect=True)

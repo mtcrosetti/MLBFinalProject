@@ -1,1 +1,1 @@
-web: gunicorn mlbpredictor.app:app
+web: gunicorn app:app
