@@ -45,6 +45,11 @@ def about():
     """RENDER ABOUT"""
     return render_template("about.html")
 
+@app.route('/codes')
+def codes():
+    """"RENDER ABOUT"""
+    return render_template('codes.html')
+
 @app.route('/sources')
 def sources():
     """"RENDER ABOUT"""

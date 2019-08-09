@@ -44,7 +44,7 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
+<!-- NAVBAR -->
   <div class="container-fluid" style="background-color:black">
     <br>
     <div class="row">
@@ -74,8 +74,8 @@
                     <a class="nav-link" href="/about">About</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="/codes">Codes</a>
-                    </li> 
+                        <a class="nav-link" href="/codes">Codes</a>
+                      </li> 
                   <li class="nav-item">
                     <a class="nav-link" href="/sources">Sources</a>
                   </li>
@@ -86,6 +86,7 @@
     </nav>
     </div>  
 
+ 
 
 
   <!--- INTRODUCTION JUMBOTRON -->
@@ -98,31 +99,34 @@
     </div>
   </div> -->
 
-  <div style="background-color:lightgray; overflow-x:auto; padding: 5%; color: black">
-    <!-- <br><br> -->
-    <center>
-    <p style="font-size:30px">Sources:</p>
-    <br>
-    <p style="font-size:18px"><a href="https://www.thebaseballcube.com">The Baseball Cube</a></p>
-    <p style="font-size:18px"> TheBaseballCube was used to generate MiLB and MLB statistics from 1977 through 2018.
+  <div style="background-color:lightgray; overflow-x:auto; padding-top: 5%; padding-left: 15%; padding-right:15%; padding-bottom:5%;  color: whitesmoke">
+    <p style="font-size:30px; color:black"> Below is a step by step process of how our model was created:</p>
     <br><br>
-    <p style="font-size:18px"><a href="https://www.fangraphs.com">Fangraphs.com</a></p> 
-    <p style="font-size:18px"> Fangraphs provided the MiLB statistics for all minor leaguers in 2019.      
+    <p style="font-size:20px; color:black">Step 1 - The imports:</p>
+    <img src="../static/images/imports.PNG" class="img-responsive" width="1185px" height="auto">
     <br><br>
-    <p style="font-size:18px"><a href="https://www.baseball-reference.com">Baseball-Reference.com</a></p>
-    <p style="font-size:18px"> Baseball-Reference provided the names and ages for players in our 1977-2018 model.</p>
-    <br>
-    <p style="font-size:18px"><a href="https://rmm5t.github.io/jquery-flexselect/">FlexSelect (JQuery)</a></p>
-    <p style="font-size:18px">FlexSelect (by <a href="https://twitter.com/rmm5t">Ryan McGeary</a>) allowed searchable dropdown menus for searching.</p>
-    <br><br><br>
-    <p style="font-size:30px">Special Thanks to:</p>
-    <br>
-    <p style="font-size:18px">Danny Clifford and Andris Rubin-Schwarz - the many speedbumps along the way</p>
-    <br>
-    <p style="font-size:18px">Michael Antry - for help with Flask, GET/POST</p>
-    <br>
-    <p style="font-size:18px">Joseph Villavicencio - for help with FlexSelect</p>
-   </div>
+    <p style="font-size:20px; color:black">Step 2 - Imported our dataset, which was cleaned to be uniform from our CSV, while dropping unnamed columns:</p>
+    <img src="../static/images/importdata.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 3 - Last bit of data cleaning - changing levels from string to integer, while setting paramters (no one with less than 30 PAs):</p>
+    <img src="../static/images/lastclean2.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 4 - Defining X & Y, splitting the data into "train" and "test" models:</p>
+    <img src="../static/images/xysplit.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 5 - Running the Random Forest model:</p>
+    <img src="../static/images/rfmodel.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 6 - Gathering the feature importance of the Random Forest model:</p>
+    <img src="../static/images/feature.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 7 - Running Decision Tree model for comparison:</p>
+    <img src="../static/images/decisiontree.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>
+    <p style="font-size:20px; color:black">Step 8 - Adding 'Predicted' column; comparing to other popular projection methods:</p>
+    <img src="../static/images/predictedmodelfinal.PNG" class="img-responsive" width="1185px" height="auto">
+    <br><br>          
+  </div>
 
 
 
